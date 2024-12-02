@@ -6,218 +6,256 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Detailing Success Clone</title>
 	</head>
-	<body class="min-h-screen bg-primary text-white font-source-sans-pro">
+	<body
+		class="min-h-screen bg-success-dark text-white font-source-sans-pro font-normal"
+	>
 		<!-- Header -->
-		<header class="bg-gray-800 text-white">
-			<div class="mx-auto flex items-center justify-between p-4">
-				<!-- Logo Section -->
-				<a href="/" class="flex-shrink-0">
-					<img
-						src="./src/assets/logos/nav-logo.png"
-						alt="Detailing Success Logo"
-						class="h-12"
-					/>
-				</a>
-
-				<!-- Navigation Menu -->
-				<nav class="main-navigation unifiednav">
-					<ul class="unifiednav__container">
-						<!-- Advanced 5-Day Training -->
-						<li>
-							<a href="#">Advanced 5-Day Training</a>
-							<ul>
-								<li>
-									<a href="/advanced-5-day-training"
-										>Advanced Training Overview</a
-									>
-								</li>
-								<li>
-									<a href="/detailing-correcting-sanding"
-										>Detailing, Paint Correcting &amp;
-										Sanding</a
-									>
-								</li>
-								<li>
-									<a href="/multiple-certifications"
-										>Advanced Training &amp;
-										Accreditation</a
-									>
-								</li>
-								<li>
-									<a href="/developing-your-business-plan"
-										>Developing Your Business Plan</a
-									>
-								</li>
-								<li>
-									<a href="/sales-and-marketing"
-										>Sales and Marketing</a
-									>
-								</li>
-								<li>
-									<a href="/ceramic-coating-impact"
-										>Ceramic Coating Certification</a
-									>
-								</li>
-							</ul>
-						</li>
-
-						<!-- Extreme 1-Day Training -->
-						<li>
-							<a href="#">Extreme 1-Day Training</a>
-							<ul>
-								<li>
-									<a
-										href="/extreme-one-day-detailing-training"
-										>Extreme 1-Day Overview</a
-									>
-								</li>
-								<li>
-									<a href="/meet-the-trainers"
-										>Meet The Trainers</a
-									>
-								</li>
-							</ul>
-						</li>
-
-						<!-- The Detail Mafia -->
-						<li>
-							<a href="#">The Detail Mafia</a>
-							<ul>
-								<li>
-									<a href="/the-detail-mafia"
-										>What is the Detail Mafia?</a
-									>
-								</li>
-								<li>
-									<a
-										href="/the-detail-mafia#DetailMafiaMembershipMap"
-										>Detail Mafia Member Map</a
-									>
-								</li>
-							</ul>
-						</li>
-
-						<!-- Air Force One -->
-						<li>
-							<a href="/air-force-one-detailer">Air Force One</a>
-						</li>
-
-						<!-- More -->
-						<li>
-							<a href="#">More</a>
-							<ul>
-								<li>
-									<a href="#">About Us</a>
-									<ul>
-										<li>
-											<a href="/about-renny"
-												>About Renny</a
-											>
-										</li>
-										<li>
-											<a href="/about-us">Team Profile</a>
-										</li>
-									</ul>
-								</li>
-								<li><a href="/contact-us">Contact Us</a></li>
-								<li>
-									<a href="/testimonials">Testimonials</a>
-								</li>
-								<li>
-									<a href="/renny-doyle-podcast"
-										>Renny Doyle Podcast</a
-									>
-								</li>
-								<li>
-									<a href="/our-partners">Our Partners</a>
-								</li>
-								<li><a href="/blog">Blog</a></li>
-							</ul>
-						</li>
-
-						<!-- Choose Experience -->
-						<li>
-							<a href="#">Choose Experience</a>
-							<ul>
-								<li>
-									<a href="/new-to-detailing"
-										>New to Detailing</a
-									>
-								</li>
-								<li>
-									<a href="/career-professionals"
-										>Career Professionals</a
-									>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-
-				<!-- Mobile Menu Button -->
-				<button
-					id="mobile-menu-button"
-					class="block lg:hidden text-white"
+		<header class="fixed w-full z-50 font-semibold tracking-wide">
+			<div class="backdrop-blur-md bg-black/30">
+				<div
+					class="mx-auto px-4 flex items-center justify-between h-20"
 				>
-					<svg
-						class="w-6 h-6"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 6h16M4 12h16m-7 6h7"
+					<!-- Logo -->
+					<a href="/" class="flex-shrink-0">
+						<img
+							src="./src/assets/logos/nav-logo.png"
+							alt="Detailing Success"
+							class="h-12 w-auto"
 						/>
-					</svg>
-				</button>
-			</div>
+					</a>
 
-			<!-- Mobile Menu -->
-			<nav
-				id="mobile-menu"
-				class="hidden lg:hidden bg-gray-700 text-white space-y-2 p-4"
-			>
-				<a
-					href="/advanced-5-day-training"
-					class="block hover:bg-gray-600 p-2"
-					>Advanced 5-Day Training</a
-				>
-				<a
-					href="/extreme-one-day-detailing-training"
-					class="block hover:bg-gray-600 p-2"
-					>Extreme 1-Day Training</a
-				>
-				<a
-					href="/training-center-idaho"
-					class="block hover:bg-gray-600 p-2"
-					>Idaho Training Center</a
-				>
-				<a
-					href="/training-center-california"
-					class="block hover:bg-gray-600 p-2"
-					>California Training Center</a
-				>
-				<a
-					href="/air-force-one-detailer"
-					class="block hover:bg-gray-600 p-2"
-					>Air Force One</a
-				>
-				<a href="/the-detail-mafia" class="block hover:bg-gray-600 p-2"
-					>The Detail Mafia</a
-				>
-			</nav>
+					<!-- Main Navigation -->
+					<nav class="hidden lg:flex flex-1 justify-center space-x-8">
+						<!-- Advanced 5-Day Training Dropdown -->
+						<div class="dropdown relative group">
+							<button
+								class="flex items-center space-x-1 px-4 py-2 hover:text-gray-300"
+							>
+								<span>Advanced 5-Day Training</span>
+								<svg
+									class="w-4 h-4 chevron"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									/>
+								</svg>
+							</button>
+							<div
+								class="dropdown-content absolute left-0 w-64 bg-success-dark shadow-lg rounded-md py-2 mt-2"
+							>
+								<a
+									href="/advanced-training-overview"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Advanced Training Overview</a
+								>
+								<a
+									href="/detailing-correcting-sanding"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Detailing, Paint Correcting & Sanding</a
+								>
+								<a
+									href="/multiple-certifications"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Advanced Training & Accreditation</a
+								>
+								<a
+									href="/developing-your-business-plan"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Developing Your Business Plan</a
+								>
+								<a
+									href="/sales-and-marketing"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Sales and Marketing</a
+								>
+							</div>
+						</div>
+
+						<!-- Extreme 1-Day Training Dropdown -->
+						<div class="dropdown relative group">
+							<button
+								class="flex items-center space-x-1 px-4 py-2 hover:text-gray-300"
+							>
+								<span>Extreme 1-Day Training</span>
+								<svg
+									class="w-4 h-4 chevron"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									/>
+								</svg>
+							</button>
+							<div
+								class="dropdown-content absolute left-0 w-64 bg-success-dark shadow-lg rounded-md py-2 mt-2"
+							>
+								<a
+									href="/extreme-one-day-overview"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Extreme 1-Day Overview</a
+								>
+								<a
+									href="/meet-the-trainers"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Meet The Trainers</a
+								>
+							</div>
+						</div>
+
+						<!-- The Detail Mafia Dropdown -->
+						<div class="dropdown relative group">
+							<button
+								class="flex items-center space-x-1 px-4 py-2 hover:text-gray-300"
+							>
+								<span>The Detail Mafia</span>
+								<svg
+									class="w-4 h-4 chevron"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									/>
+								</svg>
+							</button>
+							<div
+								class="dropdown-content absolute left-0 w-64 bg-success-dark shadow-lg rounded-md py-2 mt-2"
+							>
+								<a
+									href="/what-is-detail-mafia"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>What is the Detail Mafia?</a
+								>
+								<a
+									href="/detail-mafia-map"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Detail Mafia Member Map</a
+								>
+							</div>
+						</div>
+
+						<a
+							href="/air-force-one"
+							class="px-4 py-2 hover:text-gray-300"
+							>Air Force One</a
+						>
+
+						<!-- More Dropdown -->
+						<div class="dropdown relative group">
+							<button
+								class="flex items-center space-x-1 px-4 py-2 hover:text-gray-300"
+							>
+								<span>More</span>
+								<svg
+									class="w-4 h-4 chevron"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									/>
+								</svg>
+							</button>
+							<div
+								class="dropdown-content absolute right-0 w-64 bg-success-dark shadow-lg rounded-md py-2 mt-2"
+							>
+								<a
+									href="/about-us"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>About Us</a
+								>
+								<a
+									href="/contact-us"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Contact Us</a
+								>
+								<a
+									href="/testimonials"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Testimonials</a
+								>
+								<a
+									href="/blog"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Blog</a
+								>
+							</div>
+						</div>
+					</nav>
+
+					<!-- Choose Experience Button -->
+					<div class="hidden lg:block">
+						<div class="dropdown relative">
+							<button
+								class="flex items-center space-x-1 px-6 py-2 bg-red-600 rounded-md hover:bg-red-700"
+							>
+								<span>Choose Experience</span>
+								<svg
+									class="w-4 h-4 chevron"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									/>
+								</svg>
+							</button>
+							<div
+								class="dropdown-content absolute right-0 w-64 bg-success-red shadow-lg rounded-md py-2 mt-2"
+							>
+								<a
+									href="/new-to-detailing"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>New to Detailing</a
+								>
+								<a
+									href="/current-shop-owner"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Current Shop Owner</a
+								>
+								<a
+									href="/veteran-detailer"
+									class="block px-4 py-2 text-sm hover:bg-success-red"
+									>Veteran Detailer</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</header>
 
 		<!-- Main Contents -->
-		<main>
-			<div class="font-coalition text-5xl">
-				ADVANCED 5-DAY TRAINING AT DETAILING SUCCESS
+		<main class="pt-20">
+			<div class="mx-auto px-4">
+				<div class="font-coalition text-5xl mt-8">
+					ADVANCED 5-DAY TRAINING AT DETAILING SUCCESS
+				</div>
+				<h3 class="mt-4">Testing Fonts</h3>
 			</div>
-			<h3>Testing Fonts</h3>
 		</main>
 		<script type="module" src="/src/main.js"></script>
 	</body>

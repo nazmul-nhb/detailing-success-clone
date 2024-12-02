@@ -3,73 +3,50 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Coalition';
-    src: url('/src/assets/fonts/coalition_400.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+	font-family: "Coalition";
+	src: url("/src/assets/fonts/coalition_400.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Source Sans Pro';
-    src: url('/src/assets/fonts/source-sans-pro.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+	font-family: "Source Sans Pro";
+	src: url("/src/assets/fonts/source-sans-pro.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
 }
 
 html {
 	scroll-behavior: smooth;
 }
 
-.main-navigation {
-	display: flex;
-	list-style: none;
-}
-
-.unifiednav__container {
-	display: flex;
-	gap: 1rem;
-	padding: 0;
-	margin: 0;
-}
-
-.unifiednav__container li {
-	position: relative;
-}
-
-.unifiednav__container a {
-	text-decoration: none;
-	color: white;
-	padding: 0.5rem 1rem;
-	transition: background 0.3s;
-}
-
-.unifiednav__container a:hover {
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 5px;
-}
-
-/* Dropdown Styles */
-.unifiednav__container ul {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	background: #333;
-	display: none;
-}
-
-.unifiednav__container li:hover ul {
+/* Custom transitions for dropdown */
+.dropdown-content {
+	transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
+		visibility 0s linear 0.2s;
+	opacity: 0;
+	transform: translateY(-10px);
+	pointer-events: none;
 	display: block;
+	visibility: hidden;
 }
 
-.unifiednav__container ul li a {
-	display: block;
-	padding: 0.5rem 1rem;
-	white-space: nowrap;
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover,
+.dropdown.active .dropdown-content {
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
+	transition-delay: 0s;
+	visibility: visible;
 }
 
-.unifiednav__container ul li a:hover {
-	background: rgba(255, 255, 255, 0.2);
+/* Chevron rotation animation */
+.chevron {
+	transition: transform 0.2s ease-in-out;
+}
+
+.dropdown:hover .chevron,
+.dropdown.active .chevron {
+	transform: rotate(180deg);
 }

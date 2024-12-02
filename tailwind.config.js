@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#121212',
+        'success-dark': '#121212',
+        'success-red': '#f90c0c',
+        'success-yellow': '#ffca00'
       },
       fontFamily: {
         coalition: ['Coalition', 'sans-serif'],
