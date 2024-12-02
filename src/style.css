@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Coalition';
+    src: url('/src/assets/fonts/coalition_400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/src/assets/fonts/source-sans-pro.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 html {
 	scroll-behavior: smooth;
 }

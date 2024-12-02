@@ -5,8 +5,11 @@ export default {
     extend: {
       colors: {
         primary: '#121212',
-
-      }
+      },
+      fontFamily: {
+        coalition: ['Coalition', 'sans-serif'],
+        'source-sans-pro': ['Source Sans Pro', 'sans-serif'],
+      },
     },
   },
   plugins: [],
