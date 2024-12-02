@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+	scroll-behavior: smooth;
+}
+
+.main-navigation {
+	display: flex;
+	list-style: none;
+}
+
+.unifiednav__container {
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+	margin: 0;
+}
+
+.unifiednav__container li {
+	position: relative;
+}
+
+.unifiednav__container a {
+	text-decoration: none;
+	color: white;
+	padding: 0.5rem 1rem;
+	transition: background 0.3s;
+}
+
+.unifiednav__container a:hover {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 5px;
+}
+
+/* Dropdown Styles */
+.unifiednav__container ul {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background: #333;
+	display: none;
+}
+
+.unifiednav__container li:hover ul {
+	display: block;
+}
+
+.unifiednav__container ul li a {
+	display: block;
+	padding: 0.5rem 1rem;
+	white-space: nowrap;
+}
+
+.unifiednav__container ul li a:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
