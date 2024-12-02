@@ -12,6 +12,15 @@ export default {
         coalition: ['Coalition', 'sans-serif'],
         'source-sans-pro': ['Source Sans Pro', 'sans-serif'],
       },
+      animation: {
+        'left-to-right': 'left-to-right 1s ease-out forwards',
+      },
+      keyframes: {
+        'left-to-right': {
+          '0%': { 'width': '0%', 'right': '100%' },
+          '100%': { 'width': '100%', 'right': '0%' }
+        }
+      }
     },
   },
   plugins: [],

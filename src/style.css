@@ -43,7 +43,7 @@ html {
 
 /* Chevron rotation animation */
 .chevron {
-	transition: transform 0.2s ease-in-out;
+	transition: transform 0.5s ease-in-out;
 }
 
 .dropdown:hover .chevron,

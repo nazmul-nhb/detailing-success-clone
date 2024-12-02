@@ -1,5 +1,5 @@
 import './style.css';
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // document.querySelector('#mobile-menu-button').addEventListener('click', () => {
 //     const mobileMenu = document.querySelector('#mobile-menu');
