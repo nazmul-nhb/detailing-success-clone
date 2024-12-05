@@ -6,7 +6,8 @@ export default {
       colors: {
         'success-dark': '#121212',
         'success-red': '#f90c0c',
-        'success-yellow': '#ffca00'
+        'success-yellow': '#ffca00',
+        'success-olive': '#1c2120'
       },
       backgroundImage: {
         heroBg: 'url("/src/assets/bg-images/bg-hero.png")',
@@ -15,6 +16,7 @@ export default {
       fontFamily: {
         coalition: ['Coalition', 'sans-serif'],
         'source-sans-pro': ['Source Sans Pro', 'sans-serif'],
+        'garet-heavy': ['Garet Heavy', 'sans-serif'],
       },
       animation: {
         'left-to-right': 'left-to-right 1s ease-out forwards',

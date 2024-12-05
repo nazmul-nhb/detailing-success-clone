@@ -16,6 +16,11 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: "Garet Heavy";
+	src: url("/src/assets/fonts/garet-heavy.woff") format("woff");
+}
+
 html {
 	scroll-behavior: smooth;
 }

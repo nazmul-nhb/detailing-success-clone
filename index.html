@@ -264,7 +264,7 @@
 									>DETAILING SUCCESS</span
 								>
 							</h1>
-
+							<!-- Buttons -->
 							<div class="flex flex-col sm:flex-row gap-4">
 								<a
 									href="/advanced-5-day-training"
@@ -319,21 +319,23 @@
 			</section>
 
 			<!-- Slider Section -->
-			<section class="py-12 bg-sliderBg bg-cover bg-no-repeat w-full">
+			<section
+				class="py-12 bg-sliderBg bg-cover bg-no-repeat w-full"
+			>
 				<div class="relative px-8 w-3/4">
 					<div
 						class="relative h-[540px] overflow-hidden group"
 						id="custom-slider"
 					>
 						<div class="absolute inset-0">
-							<!-- Slide content -->
+							<!-- Slider Contents -->
 							<div
 								class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
 							>
 								<img
 									src="./src/assets/slider-images/Advanced-5-Day-Training-1656w.jpg"
 									alt="Advanced 5-Day Training"
-									class="w-full aspect-video object-cover"
+									class="w-full h-full object-cover"
 								/>
 							</div>
 							<div
@@ -342,7 +344,7 @@
 								<img
 									src="./src/assets/slider-images/Extreme-1-Day-02-1656w.jpg"
 									alt="Extreme 1-Day Class"
-									class="w-full aspect-video object-cover"
+									class="w-full h-full object-cover"
 								/>
 							</div>
 							<div
@@ -351,7 +353,7 @@
 								<img
 									src="./src/assets/slider-images/Air-Force-One-Detailing-Team-02-1656w.jpg"
 									alt="Air Force One Detailing Team"
-									class="w-full aspect-video object-cover"
+									class="w-full h-full object-cover"
 								/>
 							</div>
 							<div
@@ -360,10 +362,11 @@
 								<img
 									src="./src/assets/slider-images/The-Detail-Mafia-03-1656w.jpg"
 									alt="The Detail Mafia"
-									class="w-full aspect-video object-cover"
+									class="w-full h-full object-cover"
 								/>
 							</div>
 						</div>
+						<!-- Slider Navigation Buttons -->
 						<button
 							class="absolute top-1/2 -left-full transform -translate-y-1/2 text-gray-200 hover:text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:left-4"
 							id="prevBtn"
@@ -381,14 +384,83 @@
 							id="sliderDots"
 						></div>
 					</div>
-						<figure class="absolute top-28 -right-28 z-10 rotate-180 flip">
-							<img
-								class="rounded-full border-2 border-success-red w-72 aspect-square hover:-translate-y-4 transition-all duration-500"
-								src="./src/assets/logos/round-logo.png"
-								alt="Detailing Success Round Logo"
-							/>
-						</figure>
+					<!-- Round Logo with Animation and hover effects -->
+					<figure
+						class="absolute top-28 -right-28 z-10 rotate-180 flip"
+					>
+						<img
+							class="rounded-full border-2 border-success-red w-72 aspect-square hover:-translate-y-4 transition-all duration-500"
+							src="./src/assets/logos/round-logo.png"
+							alt="Detailing Success Round Logo"
+							loading="eager"
+						/>
+					</figure>
 				</div>
+
+				<!-- Experience & Training Program Section -->
+				<section
+					class="z-20 -translate-y-28 translate-x-12 lg:translate-x-52 py-12 px-8 bg-gradient-to-b from-success-red to-success-olive border border-success-red w-3/4"
+				>
+					<div class="text-left mb-8">
+						<h2
+							class="text-3xl lg:text-4xl xl:text-[44px] font-garet-heavy font-extrabold text-white mb-4"
+							style="line-height: 1.25"
+						>
+							An Experience & Training Program with Renny Doyle
+							and Detailing Success
+						</h2>
+					</div>
+
+					<!-- Divider -->
+					<div class="border-t-2 border-success-red my-8 w-1/5"></div>
+
+					<!-- Description Paragraph -->
+					<div class="text-left text-gray-100 mb-8">
+						<p class="leading-relaxed mb-4">
+							Welcome to Detailing Success – A unique auto
+							detailing and business building training experience
+							based in Big Bear, California. Auto detailing is an
+							incredibly beneficial industry to work in, and while
+							many educational opportunities exist, there is
+							nothing quite like the tactile training that Renny
+							Doyle provides to individuals brand new to the
+							industry and those who are veterans of pro auto care
+							alike.
+						</p>
+						<p class="leading-relaxed mb-4">
+							Founded by veteran auto detailer and profound
+							entrepreneur Renny Doyle, Detailing Success brings a
+							very simple, strategic approach to teaching
+							detailers of all different skill levels. With our
+							<a
+								href="/advanced-5-day-training"
+								class="text-success-red hover:text-red-700 underline"
+								>Advanced 5-Day Training</a
+							>, Renny wants to build on what detailing skills you
+							do have while also helping you find a pathway to
+							having your detailing business work for YOU and
+							build you the lifestyle you WANT.
+						</p>
+					</div>
+
+					<!-- Buttons -->
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a
+							href="/advanced-5-day-training"
+							class="bg-success-red hover:bg-red-700 text-white font-bold py-3 px-6 flex items-center justify-center transition duration-300"
+						>
+							<span class="mr-2">★</span>
+							ADVANCED 5-DAY TRAINING
+						</a>
+						<a
+							href="/extreme-one-day-detailing-training"
+							class="hover:bg-success-red border border-success-red text-white font-bold py-3 px-6 flex items-center justify-centerr transition duration-300"
+						>
+							<span class="mr-2">★</span>
+							1-DAY EXTREME TRAINING
+						</a>
+					</div>
+				</section>
 			</section>
 		</main>
 		<script type="module" src="/src/main.js"></script>
