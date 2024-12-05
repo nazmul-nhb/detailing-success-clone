@@ -8,6 +8,9 @@ export default {
         'success-red': '#f90c0c',
         'success-yellow': '#ffca00'
       },
+      backgroundImage: {
+        heroBg: 'url("/src/assets/bg-images/bg-hero.png")',
+      },
       fontFamily: {
         coalition: ['Coalition', 'sans-serif'],
         'source-sans-pro': ['Source Sans Pro', 'sans-serif'],
