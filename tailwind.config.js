@@ -10,6 +10,7 @@ export default {
       },
       backgroundImage: {
         heroBg: 'url("/src/assets/bg-images/bg-hero.png")',
+        sliderBg: 'url("/src/assets/bg-images/bg-slider.png")',
       },
       fontFamily: {
         coalition: ['Coalition', 'sans-serif'],

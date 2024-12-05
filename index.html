@@ -234,7 +234,7 @@
 		<!-- Main Contents -->
 		<main class="pt-20">
 			<!-- Hero Section -->
-			<section class="bg-heroBg bg-cover bg-blend-saturation">
+			<section class="bg-heroBg bg-cover bg-no-repeat">
 				<div class="mx-auto py-8">
 					<div class="flex flex-col lg:flex-row items-center">
 						<div class="lg:w-7/12 mb-8 lg:mb-0 px-8">
@@ -316,6 +316,72 @@
 						>The Detail Mafia</a
 					>
 				</p>
+			</section>
+
+			<!-- Slider Section -->
+			<section class="py-12 bg-sliderBg bg-cover bg-no-repeat w-full">
+				<div class="mx-auto px-8">
+					<div
+						class="relative h-[650px] overflow-hidden group w-3/5"
+						id="custom-slider"
+					>
+						<div class="absolute inset-0">
+							<!-- Slide content -->
+							<div
+								class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+							>
+								<img
+									src="./src/assets/slider-images/Advanced-5-Day-Training-1656w.jpg"
+									alt="Advanced 5-Day Training"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+							<div
+								class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+							>
+								<img
+									src="./src/assets/slider-images/Extreme-1-Day-02-1656w.jpg"
+									alt="Extreme 1-Day Class"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+							<div
+								class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+							>
+								<img
+									src="./src/assets/slider-images/Air-Force-One-Detailing-Team-02-1656w.jpg"
+									alt="Air Force One Detailing Team"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+							<div
+								class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+							>
+								<img
+									src="./src/assets/slider-images/The-Detail-Mafia-03-1656w.jpg"
+									alt="The Detail Mafia"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+						</div>
+						<button
+							class="absolute top-1/2 -left-full transform -translate-y-1/2 text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:left-4"
+							id="prevBtn"
+						>
+							<i class="fas fa-chevron-left"></i>
+						</button>
+						<button
+							class="absolute top-1/2 -right-full transform -translate-y-1/2 text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:right-4"
+							id="nextBtn"
+						>
+							<i class="fas fa-chevron-right"></i>
+						</button>
+						<div
+							class="absolute bottom-4 left-0 right-0 flex justify-center"
+							id="sliderDots"
+						></div>
+					</div>
+				</div>
 			</section>
 		</main>
 		<script type="module" src="/src/main.js"></script>
