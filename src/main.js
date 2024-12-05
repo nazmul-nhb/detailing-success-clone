@@ -65,5 +65,20 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
         }
     });
+
+    // Slide-in animation for the links section
+    // const slideInElement = document.querySelector('.slide-in');
+
+    // function checkSlideIn() {
+    //     const triggerBottom = window.innerHeight / 5 * 4;
+    //     const elementTop = slideInElement.getBoundingClientRect().top;
+
+    //     if (elementTop < triggerBottom) {
+    //         slideInElement.classList.add('active');
+    //     }
+    // }
+
+    // window.addEventListener('scroll', checkSlideIn);
+    // checkSlideIn();
 });
 
