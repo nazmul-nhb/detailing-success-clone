@@ -1,6 +1,7 @@
 import './style.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { initDropdown } from './scripts/drop-down';
+import { loadSliderImages } from './scripts/slider-contents';
 import { initSlider } from './scripts/slider';
 import { loadGridLinks } from './scripts/grid-links';
 import { loadExperienceLinks } from './scripts/experience-links';
@@ -12,6 +13,7 @@ import { loadExperienceLinks } from './scripts/experience-links';
 
 document.addEventListener('DOMContentLoaded', () => {
     initDropdown();
+    loadSliderImages();
     initSlider();
     loadExperienceLinks();
     loadGridLinks();

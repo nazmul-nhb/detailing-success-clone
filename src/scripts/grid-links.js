@@ -1,26 +1,31 @@
+import grid1 from '../assets/images/Advanced-5-Day-Training-001.jpg'
+import grid2 from '../assets/images/Justin-Labato-Detailing-Success-Melbourne-Florida.jpg'
+import grid3 from '../assets/images/Air-Force-One-Detailing-Team-17.jpg'
+import grid4 from '../assets/images/The-Detail-Mafia-07.jpg'
+
 const contents = [
     {
         title: "Advanced 5-Day Training",
         link: "advanced-5-day-training",
-        image: "./src/assets/images/Advanced-5-Day-Training-001.jpg",
+        image: grid1,
         body: "Our Advanced 5-Day Training program here at Detailing Success is an extensive, week-long educational experience where four students get to work directly with Renny Doyle on sharpening their skills and increasing their profitability as a detailer."
     },
     {
         title: "Extreme 1-Day Class",
         link: "extreme-one-day-detailing-training",
-        image: "./src/assets/images/Justin-Labato-Detailing-Success-Melbourne-Florida.jpg",
+        image: grid2,
         body: "Detailing Success has locations where detailers can join our Extreme 1-Day Class, getting a crash-course in basic refinement of your already-existing detailing skills that can then be expanded upon by joining our Advanced 5-Day Training"
     },
     {
         title: "Air Force One Detailing Team",
         link: "air-force-one-detailer",
-        image: "./src/assets/images/Air-Force-One-Detailing-Team-17.jpg",
+        image: grid3,
         body: "Want the opportunity to work on the same aircraft that flew the presidents from John F. Kennedy to Bill Clinton around? Sign up for our Advanced 5-Day Training and give yourself the opportunity to become part of the Air Force One Detailing Team!"
     },
     {
         title: "The Detail Mafia",
         link: "the-detail-mafia",
-        image: "./src/assets/images/The-Detail-Mafia-07.jpg",
+        image: grid4,
         body: "When you complete our Advanced 5-Day Training, you get the opportunity to apply to join The Detail Mafia - An exclusive network of detailing experts both nationally and around the world that have trained with Renny Doyle."
     }
 ];
@@ -37,6 +42,7 @@ export const loadGridLinks = () => {
                                 class="aspect-[1.5] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
                                 src="${content.image}"
                                 alt="${content.title}"
+                                loading="eager"
                             />
                         </figure>
                     </a>
