@@ -320,9 +320,9 @@
 
 			<!-- Slider Section -->
 			<section class="py-12 bg-sliderBg bg-cover bg-no-repeat w-full">
-				<div class="mx-auto px-8">
+				<div class="relative px-8 w-3/4">
 					<div
-						class="relative h-[650px] overflow-hidden group w-3/5"
+						class="relative h-[540px] overflow-hidden group"
 						id="custom-slider"
 					>
 						<div class="absolute inset-0">
@@ -333,7 +333,7 @@
 								<img
 									src="./src/assets/slider-images/Advanced-5-Day-Training-1656w.jpg"
 									alt="Advanced 5-Day Training"
-									class="w-full h-full object-cover"
+									class="w-full aspect-video object-cover"
 								/>
 							</div>
 							<div
@@ -342,7 +342,7 @@
 								<img
 									src="./src/assets/slider-images/Extreme-1-Day-02-1656w.jpg"
 									alt="Extreme 1-Day Class"
-									class="w-full h-full object-cover"
+									class="w-full aspect-video object-cover"
 								/>
 							</div>
 							<div
@@ -351,7 +351,7 @@
 								<img
 									src="./src/assets/slider-images/Air-Force-One-Detailing-Team-02-1656w.jpg"
 									alt="Air Force One Detailing Team"
-									class="w-full h-full object-cover"
+									class="w-full aspect-video object-cover"
 								/>
 							</div>
 							<div
@@ -360,27 +360,34 @@
 								<img
 									src="./src/assets/slider-images/The-Detail-Mafia-03-1656w.jpg"
 									alt="The Detail Mafia"
-									class="w-full h-full object-cover"
+									class="w-full aspect-video object-cover"
 								/>
 							</div>
 						</div>
 						<button
-							class="absolute top-1/2 -left-full transform -translate-y-1/2 text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:left-4"
+							class="absolute top-1/2 -left-full transform -translate-y-1/2 text-gray-200 hover:text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:left-4"
 							id="prevBtn"
 						>
 							<i class="fas fa-chevron-left"></i>
 						</button>
 						<button
-							class="absolute top-1/2 -right-full transform -translate-y-1/2 text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:right-4"
+							class="absolute top-1/2 -right-full transform -translate-y-1/2 text-gray-200 hover:text-gray-400 text-6xl p-2 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:right-4"
 							id="nextBtn"
 						>
 							<i class="fas fa-chevron-right"></i>
 						</button>
 						<div
-							class="absolute bottom-4 left-0 right-0 flex justify-center"
+							class="absolute bottom-10 left-0 right-0 flex justify-center"
 							id="sliderDots"
 						></div>
 					</div>
+						<figure class="absolute top-28 -right-28 z-10 rotate-180 flip">
+							<img
+								class="rounded-full border-2 border-success-red w-72 aspect-square hover:-translate-y-4 transition-all duration-500"
+								src="./src/assets/logos/round-logo.png"
+								alt="Detailing Success Round Logo"
+							/>
+						</figure>
 				</div>
 			</section>
 		</main>

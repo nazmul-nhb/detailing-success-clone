@@ -23,7 +23,7 @@ export default {
         'left-to-right': {
           '0%': { 'width': '0%', 'right': '100%' },
           '100%': { 'width': '100%', 'right': '0%' }
-        }
+        },
       }
     },
   },

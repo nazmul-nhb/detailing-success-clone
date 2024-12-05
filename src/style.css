@@ -62,3 +62,21 @@ html {
 	opacity: 1;
 	transform: translateX(0);
 } */
+
+.flip {
+	animation: flip 1.5s ease-in-out forwards;
+}
+
+/* Flip Animation */
+@keyframes flip {
+	0% {
+		transform: rotateY(180deg);
+		opacity: 0;
+		transform-origin: center;
+	}
+	100% {
+		transform: rotateY(0deg);
+		opacity: 100;
+		transform-origin: center;
+	}
+}

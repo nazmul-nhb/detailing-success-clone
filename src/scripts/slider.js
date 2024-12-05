@@ -1,5 +1,4 @@
 export const initSlider = () => {
-    // Slider Section
     const sliderContainer = document.querySelector('#custom-slider');
     const slides = sliderContainer.querySelectorAll('.absolute.inset-0.transition-opacity');
     const prevBtn = document.getElementById('prevBtn');
