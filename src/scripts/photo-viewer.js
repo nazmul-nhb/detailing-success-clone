@@ -1,21 +1,26 @@
+import { loadFullScreenImage } from "./full-screen-image";
+
 export const loadGallery = () => {
-    let currentIndex = 0;
-    let images = [];
     const viewer = document.getElementById("viewer");
+
+    loadFullScreenImage(viewer);
+
+    let currentIndex = 0;
+
+    const images = [];
+
     const fullscreenImage = document.getElementById("fullscreen-image");
     const closeBtn = document.getElementById("close-btn");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
     const imageCount = document.getElementById("image-count");
     const fullscreenBtn = document.getElementById("fullscreen-btn");
-    const closeFullscreenBtn = document.getElementById("close-fullscreen");
 
-    let isFullscreen = false;
-    let isDragging = false;
-    let startX, startY;
+    // Zoom toggle state
+    let isZoomedIn = false;
 
     // Get all the thumbnail images
-    const thumbImages = document.querySelectorAll("#image-viewer .thumb");
+    const thumbImages = document.querySelectorAll("#image-viewer img");
     thumbImages.forEach((thumb, index) => {
         thumb.addEventListener("click", () => {
             // Open fullscreen viewer on thumbnail click
@@ -32,13 +37,23 @@ export const loadGallery = () => {
         viewer.style.display = 'flex';
         viewer.classList.add('show'); // Fade in
         fullscreenImage.src = thumb.getAttribute("src");
-        fullscreenImage.style.transform = "scale(1)"; // Reset zoom
-        fullscreenImage.style.cursor = "grab";
+        fullscreenImage.alt = thumb.getAttribute("alt");
+        fullscreenImage.style.transform = "scale(1) translate(0, 0)"; // Reset zoom and pan
+        fullscreenImage.style.cursor = "zoom-in"; // Initial cursor for zoom-in
+
+        scale = 1; // Reset zoom
+        translateX = 0;
+        translateY = 0;
+        isZoomedIn = false; // Reset zoom toggle
+
         updateImageCount();
-        viewer.addEventListener("wheel", zoomImage); // Enable zooming
-        fullscreenImage.addEventListener("mousedown", startDrag); // Start dragging
-        fullscreenImage.addEventListener("mouseup", stopDrag); // Stop dragging
-        fullscreenImage.addEventListener("mousemove", dragImage); // Drag image
+
+        // Attach zoom and drag handlers
+        viewer.addEventListener("wheel", zoomImage);
+        fullscreenImage.addEventListener("mousedown", startDrag);
+        fullscreenImage.addEventListener("click", toggleZoom);
+        document.addEventListener("mouseup", stopDrag);
+        document.addEventListener("mousemove", dragImage);
     }
 
     // Update the image count (1/3, 2/3, etc.)
@@ -46,62 +61,150 @@ export const loadGallery = () => {
         imageCount.textContent = `${currentIndex + 1} / ${images.length}`;
     }
 
-    // Zoom in/out with mouse wheel
-    function zoomImage(event) {
+    let isDragging = false, isFullscreen = false;
+
+    let startX = 0, startY = 0;
+    let scale = 1, translateX = 0, translateY = 0;
+
+    function toggleZoom(event) {
         event.preventDefault();
-        let scale = 1;
-        const currentTransform = fullscreenImage.style.transform;
 
-        if (currentTransform.includes("scale")) {
-            scale = parseFloat(currentTransform.split("scale(")[1].split(")")[0]);
-        }
+        if (!isZoomedIn) {
+            // Zoom in
+            scale = 2; // Set zoom scale
+            const rect = fullscreenImage.getBoundingClientRect();
 
-        // Zoom in and out
-        if (event.deltaY < 0) {
-            scale += 0.1;
+            // Center zoom around the click position
+            const mouseX = event.clientX - rect.left;
+            const mouseY = event.clientY - rect.top;
+            translateX = -(mouseX - rect.width / 2) / scale;
+            translateY = -(mouseY - rect.height / 2) / scale;
+
+            fullscreenImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+            fullscreenImage.style.cursor = "zoom-out"; // Update cursor
         } else {
-            scale = Math.max(1, scale - 0.1); // Prevent zooming out too much
+            // Zoom out
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+
+            fullscreenImage.style.transform = "scale(1) translate(0, 0)";
+            fullscreenImage.style.cursor = "zoom-in"; // Update cursor
         }
 
-        fullscreenImage.style.transform = `scale(${scale})`;
+        isZoomedIn = !isZoomedIn; // Toggle zoom state
     }
 
-    // Start dragging the image
+    function zoomImage(event) {
+        event.preventDefault();
+
+        const rect = fullscreenImage.getBoundingClientRect();
+        const zoomFactor = event.deltaY < 0 ? 1.1 : 0.9; // Zoom in or out
+        const prevScale = scale;
+
+        // Update scale
+        scale *= zoomFactor;
+        scale = Math.max(1, scale); // Prevent zooming out below original size
+
+        // Mouse position relative to the image
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        // Adjust translations to zoom around the mouse position
+        translateX -= (mouseX / prevScale) * (zoomFactor - 1);
+        translateY -= (mouseY / prevScale) * (zoomFactor - 1);
+
+        // Constrain translations to keep the image centered at scale 1
+        if (scale === 1) {
+            translateX = 0;
+            translateY = 0;
+        }
+
+        fullscreenImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+    }
+
     function startDrag(event) {
+        event.preventDefault(); // Prevent default browser behavior (like image selection)
         isDragging = true;
-        startX = event.clientX - fullscreenImage.getBoundingClientRect().left;
-        startY = event.clientY - fullscreenImage.getBoundingClientRect().top;
+
+        // Capture the starting mouse position
+        startX = event.clientX;
+        startY = event.clientY;
+
         fullscreenImage.style.cursor = "grabbing";
     }
 
-    // Stop dragging the image
     function stopDrag() {
         isDragging = false;
-        fullscreenImage.style.cursor = "grab";
+        fullscreenImage.style.cursor = isZoomedIn ? "zoom-out" : "zoom-in";
     }
 
-    // Drag the image around
     function dragImage(event) {
-        if (isDragging) {
-            event.preventDefault();
-            const offsetX = event.clientX - startX;
-            const offsetY = event.clientY - startY;
-            fullscreenImage.style.transform = `scale(1) translate(${offsetX}px, ${offsetY}px)`;
-        }
+        if (!isDragging) return;
+
+        event.preventDefault();
+
+        // Movement deltas
+        const deltaX = (event.clientX - startX) / scale;
+        const deltaY = (event.clientY - startY) / scale;
+
+        // Update translations
+        translateX += deltaX;
+        translateY += deltaY;
+
+        // Constrain translations
+        const rect = fullscreenImage.getBoundingClientRect();
+        const viewerWidth = viewer.clientWidth;
+        const viewerHeight = viewer.clientHeight;
+
+        const maxTranslateX = (rect.width * scale - viewerWidth) / 2;
+        const maxTranslateY = (rect.height * scale - viewerHeight) / 2;
+
+        translateX = Math.max(-maxTranslateX, Math.min(maxTranslateX, translateX));
+        translateY = Math.max(-maxTranslateY, Math.min(maxTranslateY, translateY));
+
+        // Apply transform
+        fullscreenImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+
+        // Update starting positions
+        startX = event.clientX;
+        startY = event.clientY;
     }
 
     // Close the fullscreen viewer with animation
-    closeBtn.addEventListener("click", () => {
-        viewer.classList.remove('show'); // Remove fade-in class to trigger fade-out animation
-        setTimeout(() => {
-            viewer.style.display = 'none'; // After fade-out, hide the viewer
-        }, 300); // Match the transition duration
-        fullscreenImage.src = "";
-        viewer.removeEventListener("wheel", zoomImage); // Remove zoom listener
-        fullscreenImage.removeEventListener("mousedown", startDrag); // Remove drag events
-        fullscreenImage.removeEventListener("mouseup", stopDrag);
-        fullscreenImage.removeEventListener("mousemove", dragImage);
+    closeBtn.addEventListener("click", closeViewer);
+
+    // Close the viewer when clicking outside the image
+    viewer.addEventListener("click", (event) => {
+        // Check if the click is on the background and NOT on the image or any buttons
+        if (!isFullscreen && !fullscreenImage.contains(event.target) &&
+            !closeBtn.contains(event.target) &&
+            !prevBtn.contains(event.target) &&
+            !nextBtn.contains(event.target) &&
+            !imageCount.contains(event.target) &&
+            !fullscreenBtn.contains(event.target)) {
+            closeViewer();
+        }
     });
+
+    function closeViewer() {
+        viewer.classList.remove("show");
+        setTimeout(() => {
+            viewer.style.display = "none"; // Hide after fade-out
+        }, 300); // Match fade-out duration
+
+        // Reset zoom and translations
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+        fullscreenImage.style.transform = "scale(1) translate(0px, 0px)";
+
+        // Remove event listeners
+        viewer.removeEventListener("wheel", zoomImage);
+        fullscreenImage.removeEventListener("mousedown", startDrag);
+        document.removeEventListener("mouseup", stopDrag);
+        document.removeEventListener("mousemove", dragImage);
+    }
 
     // Slide to the next image
     nextBtn.addEventListener("click", () => {
@@ -128,14 +231,14 @@ export const loadGallery = () => {
 
     // Enter fullscreen mode
     function enterFullscreen() {
-        if (fullscreenImage.requestFullscreen) {
-            fullscreenImage.requestFullscreen();
-        } else if (fullscreenImage.mozRequestFullScreen) { // Firefox
-            fullscreenImage.mozRequestFullScreen();
-        } else if (fullscreenImage.webkitRequestFullscreen) { // Chrome, Safari, Opera
-            fullscreenImage.webkitRequestFullscreen();
-        } else if (fullscreenImage.msRequestFullscreen) { // IE/Edge
-            fullscreenImage.msRequestFullscreen();
+        if (viewer.requestFullscreen) {
+            viewer.requestFullscreen();
+        } else if (viewer.mozRequestFullScreen) { // Firefox
+            viewer.mozRequestFullScreen();
+        } else if (viewer.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            viewer.webkitRequestFullscreen();
+        } else if (viewer.msRequestFullscreen) { // IE/Edge
+            viewer.msRequestFullscreen();
         }
         isFullscreen = true;
     }
@@ -160,11 +263,5 @@ export const loadGallery = () => {
             exitFullscreen();
             viewer.style.display = 'none';
         }
-    });
-
-    // Close fullscreen button
-    closeFullscreenBtn.addEventListener("click", () => {
-        exitFullscreen();
-        viewer.style.display = 'none';
     });
 };
