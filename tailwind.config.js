@@ -12,6 +12,7 @@ export default {
       backgroundImage: {
         heroBg: 'url("/src/assets/bg-images/bg-hero.png")',
         sliderBg: 'url("/src/assets/bg-images/bg-slider.png")',
+        galleryBg: 'url("/src/assets/bg-images/bg-gallery.png")',
       },
       fontFamily: {
         coalition: ['Coalition', 'sans-serif'],

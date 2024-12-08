@@ -7,6 +7,7 @@ import { loadGridLinks } from './scripts/grid-links';
 import { loadExperienceLinks } from './scripts/experience-links';
 import { animateTextOnScroll } from './scripts/animate-divider';
 import { loadMagicNumbers } from './scripts/magic-numbers';
+import { loadGallery } from './scripts/photo-viewer';
 
 // document.querySelector('#mobile-menu-button').addEventListener('click', () => {
 //     const mobileMenu = document.querySelector('#mobile-menu');
@@ -26,5 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadExperienceLinks();
     loadGridLinks();
     loadMagicNumbers();
+    loadGallery();
 });
 

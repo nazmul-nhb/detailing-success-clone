@@ -74,3 +74,61 @@ html {
 		transform-origin: center;
 	}
 }
+#viewer {
+	display: none;
+	transition: opacity 0.3s ease-in-out;
+}
+
+#viewer img {
+	transition: transform 0.3s ease; /* Smooth zoom transition */
+}
+
+#viewer.show {
+	opacity: 1; /* Fade in */
+}
+
+#fullscreen-image {
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	  cursor: grab;
+}
+
+#image-count {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: white;
+	font-size: 1.2rem;
+	z-index: 1001;
+}
+
+#fullscreen-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding: 8px 12px;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 1001;
+}
+
+#close-fullscreen {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+button {
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+button:hover {
+	background: rgba(0, 0, 0, 0.6); /* Button hover effect */
+}

@@ -491,7 +491,7 @@
 					</div>
 
 					<!-- Divider -->
-					<div class="border-t-2 border-success-red my-8 w-1/5"></div>
+					<div class="border-t-2 border-success-red my-8 w-1/3"></div>
 
 					<!-- Description Paragraph -->
 					<div class="text-left text-gray-100 mb-8">
@@ -536,6 +536,93 @@
 					<!-- Contents from JS -->
 				</div>
 			</section>
+
+			<!-- Image Viewer -->
+			<section
+				id="image-viewer"
+				class="flex flex-col md:flex-row gap-2 px-8 py-12"
+			>
+				<figure class="relative overflow-hidden cursor-pointer flex-1">
+					<img
+						class="thumb aspect-[0.75] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+						src="./src/assets/images/Ricardo-Alatorre-2.jpeg"
+						alt="Ricardo Alatorre"
+						loading="eager"
+					/>
+				</figure>
+				<figure class="relative overflow-hidden cursor-pointer flex-1">
+					<img
+						class="thumb aspect-[0.75] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+						src="./src/assets/images/Advanced-5-Day-Training-06.jpg"
+						alt="Advanced 5-Day Training"
+						loading="eager"
+					/>
+				</figure>
+				<figure class="relative overflow-hidden cursor-pointer flex-1">
+					<img
+						class="thumb aspect-[0.75] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+						src="./src/assets/images/Renny-Doyle-AFO-Air-Force-One-Detail-Mafia-2023-0088.png"
+						alt="Air Force One Detail Mafia"
+						loading="eager"
+					/>
+				</figure>
+			</section>
+
+			<!-- Fullscreen Image Viewer -->
+			<div
+				id="viewer"
+				class="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-0 cursor-grab z-50 justify-center items-center transition-opacity ease-in-out"
+			>
+				<div
+					class="relative h-screen w-full flex items-center justify-center"
+				>
+					<!-- Fullscreen Image -->
+					<img
+						id="fullscreen-image"
+						class="h-full"
+						src=""
+						alt="Fullscreen Image"
+					/>
+
+					<!-- Image Count -->
+					<div
+						id="image-count"
+						class="absolute top-10 right-10 text-white text-lg font-semibold z-10"
+					></div>
+
+					<!-- Fullscreen Button -->
+					<button
+						id="fullscreen-btn"
+						class="absolute top-10 right-28 text-white bg-black bg-opacity-50 p-2"
+					>
+						<i class="fa-solid fa-expand"></i>
+					</button>
+
+					<!-- Close Button -->
+					<button
+						id="close-btn"
+						class="absolute top-2 left-2 text-white bg-black bg-opacity-50 p-2"
+					>
+						<i class="fas fa-times"></i>
+					</button>
+
+					<!-- Previous Button -->
+					<button
+						id="prev-btn"
+						class="absolute top-1/2 left-4 text-white bg-black bg-opacity-50 p-2"
+					>
+						<i class="fas fa-chevron-left"></i>
+					</button>
+
+					<!-- Next Button -->
+					<button
+						id="next-btn"
+						class="absolute top-1/2 right-4 text-white bg-black bg-opacity-50 p-2"
+					>
+						<i class="fas fa-chevron-right"></i>
+					</button>
+				</div>
+			</div>
 		</main>
 		<script type="module" src="/src/main.js"></script>
 	</body>
