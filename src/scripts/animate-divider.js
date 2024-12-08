@@ -5,7 +5,7 @@
  *
  * @param {string} id - The CSS selector or HTML `id` of the target element (e.g., `"#elementId"`).
  *                      Ensure the provided selector uniquely identifies a valid DOM element.
- * @param {number} [speed=5] - The speed multiplier to control the pace of the animation.
+ * @param {number} [speed=5] - The optional speed multiplier to control the pace of the animation. Default is 5.
  *                             Higher values result in faster scrolling, while lower values slow it down.
  *
  * Functionality:
@@ -36,11 +36,11 @@ export const animateTextOnScroll = (id, speed = 5) => {
     window.addEventListener("scroll", () => {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
-        const scrollPercentage = scrollTop / scrollHeight; // Percentage of page scrolled (0 to 1)
+        const scrollRatio = scrollTop / scrollHeight; // Ratio of page scrolled (0 to 1)
 
-        // Calculate the translateX value based on scroll percentage, with a faster movement multiplier
+        // Calculate the translateX value based on scroll ratio, with a faster movement multiplier
         // Proportional movement with faster/slower speed
-        const translateX = maxTranslateX - (scrollPercentage * maxTranslateX * speed);
+        const translateX = maxTranslateX - (scrollRatio * maxTranslateX * speed);
 
         // Update the transform based on scroll direction
         scrollingText.style.transform = `translateX(${translateX}%)`;
