@@ -8,6 +8,7 @@ import { loadExperienceLinks } from './scripts/experience-links';
 import { animateTextOnScroll } from './scripts/animate-divider';
 import { loadMagicNumbers } from './scripts/magic-numbers';
 import { loadGallery } from './scripts/photo-viewer';
+import { loadFooter } from './scripts/footer';
 
 // document.querySelector('#mobile-menu-button').addEventListener('click', () => {
 //     const mobileMenu = document.querySelector('#mobile-menu');
@@ -28,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadGridLinks();
     loadMagicNumbers();
     loadGallery();
-
-    document.querySelector('#footer-year').innerText = new Date().getFullYear();
+    loadFooter();
 });
 
