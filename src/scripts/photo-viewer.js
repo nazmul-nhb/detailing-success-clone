@@ -196,8 +196,13 @@ export const loadGallery = () => {
 
     function closeViewer() {
         viewer.classList.remove("show");
+        
         setTimeout(() => {
             viewer.style.display = "none"; // Hide after fade-out
+
+            if (isFullscreen) {
+                exitFullscreen();
+            } 
         }, 300); // Match fade-out duration
 
         // Reset zoom and translations
