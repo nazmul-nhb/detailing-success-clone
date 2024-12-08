@@ -69,14 +69,16 @@ export const loadGallery = () => {
     function toggleZoom(event) {
         event.preventDefault();
 
+        const rect = fullscreenImage.getBoundingClientRect();
+
         if (!isZoomedIn) {
             // Zoom in
             scale = 2; // Set zoom scale
-            const rect = fullscreenImage.getBoundingClientRect();
 
             // Center zoom around the click position
             const mouseX = event.clientX - rect.left;
             const mouseY = event.clientY - rect.top;
+
             translateX = -(mouseX - rect.width / 2) / scale;
             translateY = -(mouseY - rect.height / 2) / scale;
 
@@ -110,17 +112,22 @@ export const loadGallery = () => {
         const mouseX = event.clientX - rect.left;
         const mouseY = event.clientY - rect.top;
 
-        // Adjust translations to zoom around the mouse position
+        // Adjust the translation based on the change in scale
         translateX -= (mouseX / prevScale) * (zoomFactor - 1);
         translateY -= (mouseY / prevScale) * (zoomFactor - 1);
 
-        // Constrain translations to keep the image centered at scale 1
+        // Ensure the image stays within bounds after zooming out
         if (scale === 1) {
             translateX = 0;
             translateY = 0;
         }
 
+        // Apply the transform (zoom and pan)
         fullscreenImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+
+        // Update cursor based on zoom level
+        fullscreenImage.style.cursor = scale > 1 ? "zoom-out" : "zoom-in";
+        isZoomedIn = scale > 1;
     }
 
     function startDrag(event) {

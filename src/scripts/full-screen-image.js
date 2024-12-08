@@ -10,7 +10,7 @@ export const loadFullScreenImage = (viewer) => {
             <!-- Fullscreen Image -->
             <img
                 id="fullscreen-image"
-                class="h-full cursor-zoom-in"
+                class="h-full"
                 src=""
                 alt=""
             />
