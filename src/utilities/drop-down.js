@@ -1,3 +1,5 @@
+//@ts-check
+
 export const initDropdown = () => {
     const dropdowns = document.querySelectorAll('.dropdown');
     const isMobile = window.matchMedia('(max-width: 1023px)').matches;
@@ -8,7 +10,7 @@ export const initDropdown = () => {
 
         if (isMobile) {
             // Mobile functionality
-            button.addEventListener('click', (e) => {
+            button?.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 dropdown.classList.toggle('active');
@@ -39,11 +41,11 @@ export const initDropdown = () => {
                 }, 200); // 200ms delay before hiding
             });
 
-            content.addEventListener('mouseenter', () => {
+            content?.addEventListener('mouseenter', () => {
                 clearTimeout(timeout);
             });
 
-            content.addEventListener('mouseleave', () => {
+            content?.addEventListener('mouseleave', () => {
                 timeout = setTimeout(() => {
                     dropdown.classList.remove('active');
                 }, 200); // 200ms delay before hiding

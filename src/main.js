@@ -1,30 +1,28 @@
+// @ts-check
+
 import './style.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { initDropdown } from './scripts/drop-down';
-import { loadSliderImages } from './scripts/slider-contents';
-import { initSlider } from './scripts/slider';
-import { loadGridLinks } from './scripts/grid-links';
-import { loadExperienceLinks } from './scripts/experience-links';
-import { animateTextOnScroll } from './scripts/animate-divider';
-import { loadMagicNumbers } from './scripts/magic-numbers';
-import { loadGallery } from './scripts/photo-viewer';
-import { loadFooter } from './scripts/footer';
+import { initDropdown } from './utilities/drop-down';
+import { initSlider } from './utilities/slider';
+import { loadGridLinks } from './modules/grid-links';
+import { loadExperienceLinks } from './modules/experience-links';
+import { animateTextOnScroll } from './utilities/animate-divider';
+import { loadMagicNumbers } from './modules/magic-numbers';
+import { loadGallery } from './utilities/gallery';
+import { loadFooter } from './modules/footer';
+import { loadSliderImages } from './modules/slider-contents';
+import { landingPageImages } from './data/slider-images';
 
 // document.querySelector('#mobile-menu-button').addEventListener('click', () => {
 //     const mobileMenu = document.querySelector('#mobile-menu');
 //     mobileMenu.classList.toggle('hidden');
 // });
 
-// Array of IDs to animate on scroll for divider
-const animatedDividerIDs = ["#landing-page-divider",]
-
 document.addEventListener('DOMContentLoaded', () => {
     initDropdown();
-
-    animatedDividerIDs.map(id => animateTextOnScroll(id));
-
-    loadSliderImages();
-    initSlider();
+    animateTextOnScroll("#landing-page-divider", 10);
+    loadSliderImages('#slider-images-container', landingPageImages)
+    initSlider('#landing-slider');
     loadExperienceLinks();
     loadGridLinks();
     loadMagicNumbers();

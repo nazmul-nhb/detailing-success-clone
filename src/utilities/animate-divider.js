@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Adds a scroll-based animation effect to a specified HTML element.
  * The element moves horizontally in proportion to the user's scroll position,
@@ -30,19 +32,21 @@ export const animateTextOnScroll = (id, speed = 5) => {
     const maxTranslateX = 20; // Initial 25% hidden to the right
 
     // Initially set the text to 25% hidden to the right
-    scrollingText.style.transform = `translateX(${maxTranslateX}%)`;
+    if (scrollingText instanceof HTMLElement) {
+        scrollingText.style.transform = `translateX(${maxTranslateX}%)`;
 
-    // Add event listener for scroll
-    window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
-        const scrollRatio = scrollTop / scrollHeight; // Ratio of page scrolled (0 to 1)
+        // Add event listener for scroll
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
+            const scrollRatio = scrollTop / scrollHeight; // Ratio of page scrolled (0 to 1)
 
-        // Calculate the translateX value based on scroll ratio, with a faster movement multiplier
-        // Proportional movement with faster/slower speed
-        const translateX = maxTranslateX - (scrollRatio * maxTranslateX * speed);
+            // Calculate the translateX value based on scroll ratio, with a faster movement multiplier
+            // Proportional movement with faster/slower speed
+            const translateX = maxTranslateX - (scrollRatio * maxTranslateX * speed);
 
-        // Update the transform based on scroll direction
-        scrollingText.style.transform = `translateX(${translateX}%)`;
-    });
+            // Update the transform based on scroll direction
+            scrollingText.style.transform = `translateX(${translateX}%)`;
+        });
+    }
 };

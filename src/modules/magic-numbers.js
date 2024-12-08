@@ -1,3 +1,5 @@
+// @ts-check
+
 const contents = [
     {
         number: 2,
@@ -51,7 +53,7 @@ export const loadMagicNumbers = () => {
             	</div>
         `;
 
-        gridContainer.innerHTML += sectionHTML;
+        if (gridContainer) gridContainer.innerHTML += sectionHTML;
     });
 
 }

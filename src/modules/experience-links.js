@@ -41,6 +41,6 @@ export const loadExperienceLinks = () => {
             </a>
         `;
 
-        experienceContainer.innerHTML += experienceHTML;
+        if (experienceContainer) experienceContainer.innerHTML += experienceHTML;
     });
 };

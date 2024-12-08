@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Load full screen image container
  * @param {HTMLElement} viewer HTML Element where fullscreen image should be

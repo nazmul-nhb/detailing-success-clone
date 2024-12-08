@@ -64,6 +64,6 @@ export const loadGridLinks = () => {
                 </div>
         `;
 
-        gridContainer.innerHTML += sectionHTML;
+        if (gridContainer) gridContainer.innerHTML += sectionHTML;
     });
 }
