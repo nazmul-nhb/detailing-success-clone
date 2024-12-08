@@ -28,5 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadGridLinks();
     loadMagicNumbers();
     loadGallery();
+
+    document.querySelector('#footer-year').innerText = new Date().getFullYear();
 });
 
